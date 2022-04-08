@@ -12,12 +12,12 @@ import javax.persistence.TypedQuery;
 import br.com.fiap.model.Setup;
 
 public class SetupDao {
-	public void insert(Setup setup) {
+	public void insert(Setup setup) { 
 		EntityManagerFactory factory =  Persistence.createEntityManagerFactory("progamer-persistence-unit");
 		EntityManager  manager = factory.createEntityManager();
 		
-		manager.persist(setup);
 		manager.getTransaction().begin();
+		manager.persist(setup);
 		manager.getTransaction().commit();
 		manager.clear();
 	}
