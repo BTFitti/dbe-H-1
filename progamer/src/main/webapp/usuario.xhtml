@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/_template.xhtml">
+	<ui:define name="content">
+		<!-- Formulário -->
+		<h:form>
+			<p:messages id="messages" closable="true">
+				<p:autoUpdate />
+			</p:messages>
+			<p:card style="width: 25em; margin:1em auto">
+				<f:facet name="title">Cadastrar usuário</f:facet>
+
+				<div class="ui-fluid">
+
+					<div class="p-field">
+						<label for="name">Nome</label>
+						<p:inputText value="#{usuarioBean.usuario.nome}" id="name"
+							type="text" required="true"
+							requiredMessage="O campo nome é obrigatório" />
+					</div>
+
+					<div class="p-field">
+						<label for="description">Email</label>
+						<p:inputText value="#{usuarioBean.usuario.email}" id="email"
+							type="text" required="true"
+							requiredMessage="O campo email é obrigatório" />
+					</div>
+
+
+					<div class="p-field">
+						<label for="dataNascimento">Data de Nascimento</label>
+						<p:datePicker pattern="dd-MM-yy"
+							value="#{usuarioBean.usuario.dataNascimento}" id="dataNascimento"
+							type="text" required="true"
+							requiredMessage="O campo Data de Nascimento é obrigatório" />
+					</div>
+
+
+
+					<div class="p-field">
+						<label for="name">Senha</label>
+						<p:password id="toggle" value="#{usuarioBean.usuario.senha}"
+							toggleMask="false" redisplay="true" />
+					</div>
+
+
+
+				</div>
+				<f:facet name="footer">
+					<p:commandButton action="#{usuarioBean.save()}" 
+						value="Save" styleClass="ui-button-success" />
+					<p:commandButton type="button" value="Cancelar"
+						styleClass="ui-button-danger" style="margin-left: .5em" />
+
+				</f:facet>
+			</p:card>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>

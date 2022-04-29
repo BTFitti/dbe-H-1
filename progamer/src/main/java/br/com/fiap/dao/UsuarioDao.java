@@ -6,25 +6,24 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import br.com.fiap.model.Usuario;
 
-import br.com.fiap.model.Setup;
-
-public class SetupDao {
-	public void insert(Setup setup) {
+public class UsuarioDao {
+	public void insert(Usuario usuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("progamer-persistence-unit");
 		EntityManager manager = factory.createEntityManager();
 
 		manager.getTransaction().begin();
-		manager.persist(setup);
+		manager.persist(usuario);
 		manager.getTransaction().commit();
 		manager.clear();
 	}
 
-	public List<Setup> list() {
+	public List<Usuario> list() {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("progamer-persistence-unit");
 		EntityManager manager = factory.createEntityManager();
 
-		TypedQuery<Setup> query = manager.createQuery("SELECT s FROM Setup s", Setup.class);
+		TypedQuery<Usuario> query = manager.createQuery("SELECT u FROM Usuario u", Usuario.class);
 
 		return query.getResultList();
 	}

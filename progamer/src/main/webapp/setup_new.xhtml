@@ -7,52 +7,41 @@
 
 <ui:composition template="/_template.xhtml">
 	<ui:define name="content">
-	<!-- Formulário -->
+		<!-- Formulário -->
 		<h:form>
-		<p:messages id="messages" closable="true">
-            <p:autoUpdate/>
-        </p:messages>
+			<p:messages id="messages" closable="true">
+				<p:autoUpdate />
+			</p:messages>
 			<p:card style="width: 25em; margin:1em auto">
 				<f:facet name="title">New Setup</f:facet>
 				<div class="ui-fluid">
+				
 					<div class="p-field">
 						<label for="name">Name</label>
-						<p:inputText 
-						value="#{setupBean.setup.name}" 
-						id="name" 
-						type="text" 
-						required="true" 
-						requiredMessage="O campo nome é obrigatório"
-						/>
+						<p:inputText value="#{setupBean.setup.name}" id="name" type="text"
+							required="true" requiredMessage="O campo nome é obrigatório" />
 					</div>
 					<div class="p-field">
 						<label for="description">Description</label>
-						<p:inputTextarea 
-							value="#{setupBean.setup.description}"
-							id="description"
-							type="text"
+						<p:inputTextarea value="#{setupBean.setup.description}"
+							id="description" type="text"
 							validatorMessage="A descrição deve ter ao menos 10 caracteres e no máximo 255">
-							 <f:validateLength minimum="10" maximum="255"/>
+							<f:validateLength minimum="10" maximum="255" />
 						</p:inputTextarea>
-							  
+
 					</div>
 					<div class="p-field">
 						<label for="price">Price</label>
-						<p:inputNumber 
-						value="#{setupBean.setup.price}" 
-						id="price"
-						symbol="R$ " 
-						decimalSeparator="," 
-						thousandSeparator="."
-						required="true"
-						>
-						<f:validateDoubleRange minimum="1"/>			
+						<p:inputNumber value="#{setupBean.setup.price}" id="price"
+							symbol="R$ " decimalSeparator="," thousandSeparator="."
+							required="true">
+							<f:validateDoubleRange minimum="1" />
 						</p:inputNumber>
 					</div>
 				</div>
-				
-				
-				
+
+
+
 				<f:facet name="footer">
 					<p:commandButton action="#{setupBean.save()}" icon="pi pi-check"
 						value="Save" />
