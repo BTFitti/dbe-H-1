@@ -7,6 +7,9 @@
 
 <ui:composition template="/_template.xhtml">
 	<ui:define name="content">
+	<p:messages id="messages" closable="true">
+				<p:autoUpdate />
+			</p:messages>
 		<h:form>
 			<div class="card">
 				<p:dataTable var="usuario" value="#{usuarioBean.usuarios}">

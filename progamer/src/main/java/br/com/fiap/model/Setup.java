@@ -13,6 +13,15 @@ public class Setup {
 	private String description = "Descrição do setup";
 	private String name = "Meu Setup";
 	private BigDecimal price = new BigDecimal(2000);
+	private String imagePath;
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 
 	@Override
 	public String toString() {
